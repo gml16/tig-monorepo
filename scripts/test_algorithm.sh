@@ -70,6 +70,7 @@ echo -ne ""
 for ((nonce=start_nonce; nonce<start_nonce+num_nonces; nonce++)); do
     start_time=$(date +%s%3N)
     output=$(./target/release/tig-worker compute_solution "$SETTINGS" $nonce $REPO_DIR/tig-algorithms/wasm/$CHALLENGE/$ALGORITHM.wasm 2>&1)
+    echo "Output test $output"
     exit_code=$?
     end_time=$(date +%s%3N)
     duration=$((end_time - start_time))
